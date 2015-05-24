@@ -1,8 +1,7 @@
 require 'sinatra'
 
 get '/' do
-  File.read('/index.html')
-  erb :index
+  File.read('index.html')
 end
 
 get 'favorites' do
@@ -17,7 +16,8 @@ get '/favorites' do
   else
   movie = { name: params[:name], oid: params[:oid] }
   file << movie
-  File.write('data.json',JSON.pretty_generate(file))
+  File.write('data.json', JSON.pretty_generate(file))
   movie.to_json
   end
+  erb :favorites
 end
