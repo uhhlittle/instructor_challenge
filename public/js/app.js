@@ -39,7 +39,7 @@
                     var id = node.id;
                     var internalXml = new XMLHttpRequest();
                     internalXml.open('post', '/favorites', true);
-                    internalXml.send("name: title, oid: id");
+                    internalXml.send({"name=title", "oid=id"});
                         console.log(node.id);
               })
         })
