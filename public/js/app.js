@@ -39,7 +39,8 @@
                     var id = node.id;
                     var internalXml = new XMLHttpRequest();
                     internalXml.open('post', '/favorites', true);
-                    internalXml.send({"name=title", "oid=id"});
+                    internalXml.setRequestHeader('Content-Type', 'application/json')
+                    internalXml.send( JSON.stringify({name: title, oid: id}));
                         console.log(node.id);
               })
         })
