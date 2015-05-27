@@ -1,0 +1,21 @@
+* {margin: 0;
+padding: 0;
+box-sizing: border-box;
+background-color: transparent;
+font-weight: normal;
+font-style: inherit;
+}
+
+body {
+  background-color: #eef;
+  color: #abe;
+}
+
+li {
+  background-color: white;
+  height: 10%;
+  width: 20%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10%;
+}

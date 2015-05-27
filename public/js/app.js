@@ -20,28 +20,27 @@
         document.querySelector('ul').appendChild(node);
         // make nodes clickable
         node.addEventListener('click', function(event){
+          document.querySelector('.movie-details').innerHTML = "";
             var movie = document.createElement('p');
             var movieYear = document.createElement('p');
-            var movieActors = document.createElement('p');
             movie.innerHTML = this.title;
             movieYear.innerHTML = this.year;
-            movieActors = this.actors;
-            var btn = document.createElement("BUTTON");        // Create a <button> element
-            var t = document.createTextNode("FAVORITE");       // Create a text node
+
+            var btn = document.createElement("BUTTON");
+            var t = document.createTextNode("FAVORITE");
             btn.appendChild(t);
-
-            document.querySelector('ul').appendChild(movie);
-            document.querySelector('ul').appendChild(movieYear);
-            document.querySelector('ul').appendChild(btn);
-
+            //renders details onto page and favorites button
+            document.querySelector('.movie-details').appendChild(movie);
+            document.querySelector('.movie-details').appendChild(movieYear);
+            document.querySelector('.movie-details').appendChild(btn);
+                  //saves data
                   btn.addEventListener('click', function(event){
-                    var title = node.title;
-                    var id = node.id;
+                    var title = movie.innerHTML;
                     var internalXml = new XMLHttpRequest();
                     internalXml.open('post', '/favorites', true);
-                    internalXml.setRequestHeader('Content-Type', 'application/json')
-                    internalXml.send( JSON.stringify({name: title, oid: id}));
-                        console.log(node.id);
+                    internalXml.setRequestHeader('Content-Type', 'application/json');
+                    internalXml.send( JSON.stringify({name: title}));
+                        console.log(title);
               })
         })
       }
