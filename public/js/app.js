@@ -33,7 +33,7 @@
             document.querySelector('.movie-details').appendChild(movie);
             document.querySelector('.movie-details').appendChild(movieYear);
             document.querySelector('.movie-details').appendChild(btn);
-                  //saves data
+                  //saves favorite via XML request
                   btn.addEventListener('click', function(event){
                     var title = movie.innerHTML;
                     var internalXml = new XMLHttpRequest();
